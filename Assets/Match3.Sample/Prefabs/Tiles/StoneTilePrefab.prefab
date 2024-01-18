@@ -5,38 +5,53 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+        type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+    - target: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+        type: 3}
       propertyPath: m_Name
       value: StoneTilePrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7895220463062979442}
   m_SourcePrefab: {fileID: 100100000, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
---- !u!1 &6519049013671751120 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
-  m_PrefabInstance: {fileID: 2394291243928438442}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &6233888044947099624 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8626929956704651586, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8626929956704651586, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2394291243928438442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6519049013671751120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa,
+    type: 3}
   m_PrefabInstance: {fileID: 2394291243928438442}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7895220463062979442
@@ -51,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d8f58a56f742529097573cee3a0a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteAtlas: {fileID: 4343727234628468602, guid: d1408b94b45746f4bbfcc7e9c6bdb20a, type: 2}
+  _spriteAtlas: {fileID: 100100200, guid: 55357420abe0d48d0b8263c9b30d724c, type: 3}
   _spriteName: tile
   _stateSpriteRenderer: {fileID: 6233888044947099624}
   _stateSpriteNames:
