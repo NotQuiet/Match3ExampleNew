@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Common.Interfaces;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -19,17 +20,24 @@ namespace Common
             var item1WorldPosition = item1.GetWorldPosition();
             var item2WorldPosition = item2.GetWorldPosition();
 
-            DOTween.Sequence(cancellationToken)
+            var seq = DOTween.Sequence()
+                .SetEase(Ease.Flash)
                 .Join(item1.Transform.DOMove(item2WorldPosition, SwapDuration))
-                .Join(item2.Transform.DOMove(item1WorldPosition, SwapDuration))
-                .SetEase(Ease.Flash);
-                // .WithCancellation(cancellationToken);
+                .Join(item2.Transform.DOMove(item1WorldPosition, SwapDuration));
+            // .WithCancellation(cancellationToken);
+
+            seq.Play();
+
+            while (seq.IsPlaying()) await UniTask.Yield();
+            
                 
             item1.SetWorldPosition(item2WorldPosition);
             item2.SetWorldPosition(item1WorldPosition);
 
             gridSlot1.SetItem(item2);
             gridSlot2.SetItem(item1);
+
+            // await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: cancellationToken);
         }
     }
 }
