@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &146242381517980804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094060636741735798, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+      propertyPath: m_Name
+      value: IceTilePrefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+--- !u!1 &8738642514888732670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8881779864796736378, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+  m_PrefabInstance: {fileID: 146242381517980804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8484374592024088006 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8626929956704651586, guid: b06fedb6b3e98d549a4d9616e9f279aa, type: 3}
+  m_PrefabInstance: {fileID: 146242381517980804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8552309525834164212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8738642514888732670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1f251541444a8b969ae9061851ae2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteAtlas: {fileID: 4343727234628468602, guid: d1408b94b45746f4bbfcc7e9c6bdb20a, type: 2}
+  _spriteName: tile
+  _stateSpriteRenderer: {fileID: 8484374592024088006}
+  _stateSpriteNames:
+  - ice
