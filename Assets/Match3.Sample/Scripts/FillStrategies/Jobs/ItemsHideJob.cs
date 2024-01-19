@@ -33,6 +33,10 @@ namespace FillStrategies.Jobs
 
             // itemsSequence.WithCancellation(cancellationToken);
 
+            itemsSequence.Play();
+
+            while (itemsSequence.IsPlaying()) await UniTask.Yield();
+            
             foreach (var item in _items)
             {
                 item.Hide();

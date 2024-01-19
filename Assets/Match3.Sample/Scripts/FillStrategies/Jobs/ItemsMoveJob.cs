@@ -37,6 +37,10 @@ namespace FillStrategies.Jobs
                 .SetDelay(_delay, false)
                 .SetEase(Ease.Flash);
             // .WithCancellation(cancellationToken);
+
+            itemsSequence.Play();
+
+            while (itemsSequence.IsPlaying()) await UniTask.Yield();
         }
     }
 }
