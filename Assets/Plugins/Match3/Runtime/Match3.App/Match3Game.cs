@@ -84,7 +84,14 @@ namespace Match3.App
         {
             await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
 
-            if (IsSolved(position1, position2, out var solvedData))
+            var positions = new List<GridPosition>();
+            
+            foreach (var slot in GameBoard.Slots)
+            {
+                positions.Add(slot.GridPosition);
+            }
+            
+            if (IsSolved(positions, out var solvedData))
             {
                 NotifySequencesSolved(solvedData);
                 await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
@@ -93,6 +100,16 @@ namespace Match3.App
             {
                 await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
             }
+            
+            // if (IsSolved(position1, position2, out var solvedData))
+            // {
+            //     NotifySequencesSolved(solvedData);
+            //     await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
+            // }
+            // else
+            // {
+            //     await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
+            // }
         }
 
         protected async UniTask SwapGameBoardItemsAsync(GridPosition position1, GridPosition position2,

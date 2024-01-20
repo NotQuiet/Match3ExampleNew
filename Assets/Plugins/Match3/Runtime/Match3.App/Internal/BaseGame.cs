@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Match3.App.Interfaces;
 using Match3.Core.Interfaces;
 using Match3.Core.Structs;
@@ -93,6 +94,11 @@ namespace Match3.App.Internal
         protected bool IsSolved(GridPosition position1, GridPosition position2, out SolvedData<TGridSlot> solvedData)
         {
             solvedData = _gameBoardSolver.Solve(GameBoard, position1, position2);
+            return solvedData.SolvedSequences.Count > 0;
+        }
+        protected bool IsSolved(List<GridPosition> positions, out SolvedData<TGridSlot> solvedData)
+        {
+            solvedData = _gameBoardSolver.Solve(GameBoard, positions.ToArray());
             return solvedData.SolvedSequences.Count > 0;
         }
 

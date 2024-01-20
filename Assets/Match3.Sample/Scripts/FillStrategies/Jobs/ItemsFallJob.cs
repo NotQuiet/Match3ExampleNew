@@ -44,7 +44,12 @@ namespace FillStrategies.Jobs
 
             itemsSequence.Play();
 
-            while (itemsSequence.IsPlaying()) await UniTask.Yield();
+            while (itemsSequence.IsPlaying() && itemsSequence.active) await UniTask.Yield();
+        }
+
+        public IEnumerable<ItemMoveData> GetNewItemsData()
+        {
+            return _itemsData;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
