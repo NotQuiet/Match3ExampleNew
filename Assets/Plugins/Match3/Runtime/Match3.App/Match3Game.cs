@@ -7,6 +7,7 @@ using Match3.App.Interfaces;
 using Match3.App.Internal;
 using Match3.Core.Interfaces;
 using Match3.Core.Structs;
+using UnityEngine;
 
 namespace Match3.App
 {
@@ -95,6 +96,8 @@ namespace Match3.App
             {
                 NotifySequencesSolved(solvedData);
                 await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
+
+                await CheckBoardAfterSolved(fillStrategy, positions, cancellationToken);
             }
             else
             {
@@ -110,6 +113,20 @@ namespace Match3.App
             // {
             //     await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
             // }
+        }
+
+        private async UniTask CheckBoardAfterSolved(IBoardFillStrategy<TGridSlot> fillStrategy, List<GridPosition> positions,
+            CancellationToken cancellationToken = default)
+        {
+            if (IsSolved(positions, out var solvedData))
+            {
+                NotifySequencesSolved(solvedData);
+                await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
+                
+                await CheckBoardAfterSolved(fillStrategy, positions);
+            }
+
+            await UniTask.Yield();
         }
 
         protected async UniTask SwapGameBoardItemsAsync(GridPosition position1, GridPosition position2,
