@@ -7,6 +7,7 @@ namespace Match3.App.Interfaces
     {
         TGridSlot this[GridPosition gridPosition] { get; }
         TGridSlot this[int rowIndex, int columnIndex] { get; }
+        public TGridSlot[,] Slots { get; }
 
         bool IsPositionOnBoard(GridPosition gridPosition);
     }

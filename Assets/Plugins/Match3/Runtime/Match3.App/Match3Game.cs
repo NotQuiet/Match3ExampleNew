@@ -87,15 +87,48 @@ namespace Match3.App
         {
             await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
 
-            if (IsSolved(position1, position2, out var solvedData))
+            var positions = new List<GridPosition>();
+            
+            foreach (var slot in GameBoard.Slots)
+            {
+                positions.Add(slot.GridPosition);
+            }
+            
+            if (IsSolved(positions, out var solvedData))
             {
                 NotifySequencesSolved(solvedData);
                 await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
+
+                await CheckBoardAfterSolved(fillStrategy, positions, cancellationToken);
             }
             else
             {
                 await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
             }
+            
+            // if (IsSolved(position1, position2, out var solvedData))
+            // {
+            //     NotifySequencesSolved(solvedData);
+            //     await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
+            // }
+            // else
+            // {
+            //     await SwapGameBoardItemsAsync(position1, position2, cancellationToken);
+            // }
+        }
+
+        private async UniTask CheckBoardAfterSolved(IBoardFillStrategy<TGridSlot> fillStrategy, List<GridPosition> positions,
+            CancellationToken cancellationToken = default)
+        {
+            if (IsSolved(positions, out var solvedData))
+            {
+                NotifySequencesSolved(solvedData);
+                await ExecuteJobsAsync(fillStrategy.GetSolveJobs(GameBoard, solvedData), cancellationToken);
+                
+                await CheckBoardAfterSolved(fillStrategy, positions);
+            }
+
+            await UniTask.Yield();
         }
 
         protected async UniTask SwapGameBoardItemsAsync(GridPosition position1, GridPosition position2,

@@ -19,6 +19,8 @@ namespace Match3.App.Internal
 
         public TGridSlot this[GridPosition gridPosition] => _gridSlots[gridPosition.RowIndex, gridPosition.ColumnIndex];
         public TGridSlot this[int rowIndex, int columnIndex] => _gridSlots[rowIndex, columnIndex];
+        
+        public TGridSlot[,] Slots => _gridSlots;
 
         public void SetGridSlots(TGridSlot[,] gridSlots)
         {
