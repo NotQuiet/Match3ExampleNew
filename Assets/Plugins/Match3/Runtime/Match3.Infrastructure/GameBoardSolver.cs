@@ -6,6 +6,7 @@ using Match3.App;
 using Match3.App.Interfaces;
 using Match3.Core.Interfaces;
 using Match3.Core.Structs;
+using UnityEngine;
 
 namespace Match3.Infrastructure
 {
@@ -25,17 +26,18 @@ namespace Match3.Infrastructure
         {
             var resultSequences = new Collection<ItemSequence<TGridSlot>>();
             var specialItemGridSlots = new HashSet<TGridSlot>();
-
+            
             foreach (var gridPosition in gridPositions)
             {
                 foreach (var sequenceDetector in _sequenceDetectors)
                 {
                     var sequence = sequenceDetector.GetSequence(gameBoard, gridPosition);
+                    
                     if (sequence == null)
                     {
                         continue;
                     }
-
+                    
                     if (IsNewSequence(sequence, resultSequences) == false)
                     {
                         continue;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Cysharp.Threading.Tasks;
@@ -7,6 +8,7 @@ using Match3.App.Interfaces;
 using Match3.App.Internal;
 using Match3.Core.Interfaces;
 using Match3.Core.Structs;
+using UnityEngine;
 
 namespace Match3.App
 {
@@ -79,7 +81,8 @@ namespace Match3.App
             await ExecuteJobsAsync(fillStrategy.GetFillJobs(GameBoard), cancellationToken);
         }
 
-        protected virtual async UniTask SwapItemsAsync(IBoardFillStrategy<TGridSlot> fillStrategy, GridPosition position1,
+        protected virtual async UniTask SwapItemsAsync(IBoardFillStrategy<TGridSlot> fillStrategy,
+            GridPosition position1,
             GridPosition position2, CancellationToken cancellationToken = default)
         {
             await SwapGameBoardItemsAsync(position1, position2, cancellationToken);

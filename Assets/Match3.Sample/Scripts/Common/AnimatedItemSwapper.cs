@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Common.Interfaces;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
