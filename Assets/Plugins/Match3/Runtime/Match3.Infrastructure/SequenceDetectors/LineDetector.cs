@@ -45,7 +45,7 @@ namespace Match3.Infrastructure.SequenceDetectors
                     break;
                 }
 
-                if (currentSlot.ItemId == gridSlot.ItemId)
+                if (currentSlot.HasItem && gridSlot.HasItem && currentSlot.ItemId == gridSlot.ItemId)
                 {
                     newPosition += direction;
                     slotsSequence.Add(currentSlot);
